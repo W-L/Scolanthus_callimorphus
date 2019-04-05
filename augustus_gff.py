@@ -19,8 +19,9 @@ for f in aug_files:
     augfile.read_genes()
 
     for g in augfile.genes:
-        # grab the sequences to make the proteome
-        g.getSeq()
-        g.writeSeq()
+        # grab the features of each gene to concat the gtfs
+        g.grabFeatures()
+        g.writeFeatures()
+        
 
 
