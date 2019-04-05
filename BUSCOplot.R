@@ -69,7 +69,7 @@ p <- ggplot(data=BUSCO, aes(y=V2, x=name, fill=recat)) +
   xlab('') +
   theme_minimal()
 p
-#ggsave(p, file="~/cube_home/02_BUSCO/BUSCO_scores.pdf", width=7,height=3)
+ggsave(p, file="~/cube_home/results/BUSCO4.pdf", width=7,height=3)
 
 
 
