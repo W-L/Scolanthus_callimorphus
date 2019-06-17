@@ -3,6 +3,7 @@
 library(ggplot2)
 library(reshape)
 library(data.table)
+library(cowplot)
 
 # grab the info
 grabN <- function(path, N){
@@ -59,7 +60,9 @@ canu_original = "~/cube_scratch/03_REAPR/reapr_canu_out/05.summary.report.txt",
 canu_pilon_PE = "~/cube_scratch/08_reapr_new_assemblies/canu_pilon_reapr/05.summary.report.txt",
 canu_racon = "~/cube_scratch/08_reapr_new_assemblies/canu_racon_reapr/05.summary.report.txt",
 canu_r0p3_c0p045 = "~/cube_scratch/08_reapr_new_assemblies/scol_r0p03_c0p045_reapr/05.summary.report.txt",
-canu_both_spikeins = "~/cube_scratch/04_mergebam/reapr_canu_out_spikeins/05.summary.report.txt "
+canu_both_spikeins = "~/cube_scratch/04_mergebam/reapr_canu_out_spikeins/05.summary.report.txt ",
+canu_r0p3_c0p1 = "~/cube_scratch/08_reapr_new_assemblies/scol_r0p03_c0p1_reapr/05.summary.report.txt",
+masurca = "~/cube_scratch/08_reapr_new_assemblies/masurca_reapr/05.summary.report.txt"
 )
 
 NGs <- data.frame()
@@ -112,5 +115,5 @@ r <- ggplot(data=Err, aes(x=assembler, y=error_free)) +
 combo <- plot_grid(p, plot_grid(q, r, nrow=1), nrow=2)
 #combo
 
-ggsave(combo, file="~/cube_home/results/reapr_combo.pdf", width=7,height=7)
+ggsave(combo, file="~/cube_home/results/reapr_combo9.pdf", width=7,height=7)
 

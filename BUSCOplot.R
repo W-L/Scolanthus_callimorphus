@@ -37,20 +37,44 @@ BUSCOtable <- function(path, name){
 }
 
 
-canu <- BUSCOtable(path = '/home/lukas/cube_scratch/02_BUSCO/run_busco_canu/short_summary_busco_canu.txt',
-                  name = 'canu')
+#canu <- BUSCOtable(path = '/home/lukas/cube_scratch/02_BUSCO/run_busco_canu/short_summary_busco_canu.txt',
+#                  name = 'canu')
 
-falcon <- BUSCOtable(path = '/home/lukas/cube_scratch/02_BUSCO/run_busco_falcon/short_summary_busco_falcon.txt',
-                   name = 'falcon')
+#falcon <- BUSCOtable(path = '/home/lukas/cube_scratch/02_BUSCO/run_busco_falcon/short_summary_busco_falcon.txt',
+#                   name = 'falcon')
 
-miniasm <- BUSCOtable(path = '/home/lukas/cube_scratch/02_BUSCO/run_busco_miniasm2/short_summary_busco_miniasm2.txt',
-                   name = 'miniasm racon')
+#miniasm <- BUSCOtable(path = '/home/lukas/cube_scratch/02_BUSCO/run_busco_miniasm2/short_summary_busco_miniasm2.txt',
+#                   name = 'miniasm racon')
 
-canu_augustus <- BUSCOtable(path = '/home/lukas/cube_scratch/11_BUSCO_proteins/run_busco_sc1_canu_augustus/short_summary_busco_sc1_canu_augustus.txt',
-                            name = 'canu_augustus_proteins')
+#canu_augustus <- BUSCOtable(path = '/home/lukas/cube_scratch/11_BUSCO_proteins/run_busco_sc1_canu_augustus/short_summary_busco_sc1_canu_augustus.txt',
+#                            name = 'canu_augustus_proteins')
+
+#canu_r0p3_c0p1 <- BUSCOtable(path = '/home/lukas/cube_scratch/02_BUSCO/run_busco_canu_r0p3_c0p1/short_summary_busco_canu_r0p3_c0p1.txt',
+#                            name = 'canu_r0p3_c0p1')
+
+#2PB_canu_r0p3_c0p045 <- BUSCOtable(path = '/home/lukas/cube_scratch/processing/02_BUSCO/run_busco_canu_r0p3_c0p045/short_summary_busco_canu_r0p3_c0p045.txt',
+#                            name = '2PB_canu_r0p3_c0p045')
+
+canu <- BUSCOtable(path = '/scratch/weilguny/analysis/02_busco/run_busco_scol3PB_r0p3_c0p045/short_summary_busco_scol3PB_r0p3_c0p045.txt',
+                            name = '3PB_canu')
+
+#3PB_canu_r0p3_c0p06 <- BUSCOtable(path = '/home/lukas/cube_scratch/analysis/02_busco/run_busco_scol3PB_r0p3_c0p06/short_summary_busco_scol3PB_r0p3_c0p06.txt',
+#                            name = '3PB_canu_r0p3_c0p06')
+
+#3PB_falcon <- BUSCOtable(path = '/home/lukas/cube_scratch/analysis/02_busco/run_busco_scol3PB_falcon/short_summary_busco_scol3PB_falcon.txt',
+#                            name = '3PB_falcon')
+
+canu_redundans <- BUSCOtable(path = '/scratch/weilguny/analysis/02_busco/run_busco_redundans/short_summary_busco_redundans.txt',
+					name = '3PB_canu_redundans') 
+
+
 
 # merge the BUSCOs
-BUSCO <- rbind(canu, falcon, miniasm, canu_augustus)
+#BUSCO <- rbind(canu, falcon, miniasm, canu_augustus, canu_r0p3_c0p045, canu_r0p3_c0p1)
+
+#BUSCO <- rbind(2PB_canu_r0p3_c0p045, 3PB_canu_r0p3_c0p045, 3PB_canu_r0p3_c0p06, 3PB_falcon)
+
+BUSCO <- rbind(canu, canu_redundans)
 
 
 # make some labels - calc y pos and center - painful
@@ -69,7 +93,7 @@ p <- ggplot(data=BUSCO, aes(y=V2, x=name, fill=recat)) +
   xlab('') +
   theme_minimal()
 p
-ggsave(p, file="~/cube_home/results/BUSCO4.pdf", width=7,height=3)
+ggsave(p, file="./BUSCO_3PB_redundans.pdf", width=7,height=2)
 
 
 
